@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="hide_price_on_product_page" inherit_id="website_sale.product" name="Hide Product Page Price For Public User">
+        <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
+            <attribute name="t-if">not request.env.user._is_public()</attribute>
+        </xpath>
+    </template>
+
+    <template id="hide_price_on_products_grid" inherit_id="website_sale.products_item" name="Hide Product Grid Price For Public User">
+        <xpath expr="//*[hasclass('product_price')]" position="attributes">
+            <attribute name="t-if">not request.env.user._is_public()</attribute>
+        </xpath>
+    </template>
+</odoo>
